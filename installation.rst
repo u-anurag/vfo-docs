@@ -1,8 +1,8 @@
 .. include:: sub.txt
 
 
-Install In command line
------------------------
+Installation
+------------
 
 * To install
 

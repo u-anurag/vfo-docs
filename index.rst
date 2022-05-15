@@ -23,6 +23,26 @@ Following elements are supported:
     * 8 Node Brick Elements
     * Tetrahedron Elements (to be added)
 
+
+
+Installation
+
+::
+
+  python -m pip install vfo
+
+  python -m pip install --user vfo
+  
+
+To upgrade the package installation
+
+::
+ 
+  python -m pip install --upgrade vfo
+
+  python -m pip install --user --upgrade vfo
+   
+   
 The following two commands are needed to visualize the model, as shown below:
 
 ::
