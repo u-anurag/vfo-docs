@@ -38,7 +38,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'vfo'
-copyright = '2022, Anurag Upadhyay'
+copyright = '2020-2022, Anurag Upadhyay'
 author = 'Anurag Upadhyay'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -140,10 +140,31 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'vfo-docs', 'vfo Documentation',
+    (master_doc, 'vfo-docs.tex', 'vfo Documentation',
      'Anurag Upadhyay', 'manual'),
 ]
 
+
+# -- Options for manual page output ---------------------------------------
+
+# One entry per manual page. List of tuples
+# (source start file, name, description, authors, manual section).
+man_pages = [
+    (master_doc, 'vfo', 'vfo Documentation',
+     [author], 1)
+]
+
+
+# -- Options for Texinfo output -------------------------------------------
+
+# Grouping the document tree into Texinfo files. List of tuples
+# (source start file, target name, title, author,
+#  dir menu entry, description, category)
+texinfo_documents = [
+    (master_doc, 'vfo', 'vfo Documentation',
+     author, 'vfo', 'One line description of project.',
+     'Miscellaneous'),
+]
 
 
 # -- Options for Epub output ----------------------------------------------
