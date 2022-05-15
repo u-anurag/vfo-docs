@@ -47,6 +47,7 @@ The following two commands are needed to visualize the model, as shown below:
 
 Following are commands and development guide related to model visualization:
 
+#. :doc:`installation`
 #. :doc:`createODB`
 #. :doc:`saveFiberData2D`
 #. :doc:`plot_model`
@@ -62,6 +63,7 @@ Following are commands and development guide related to model visualization:
    :maxdepth: 1
    :hidden:
 
+   Installation
    createODB
    saveFiberData2D
    plot_model
