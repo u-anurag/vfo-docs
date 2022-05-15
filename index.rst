@@ -63,7 +63,7 @@ Following are commands and development guide related to model visualization:
    :maxdepth: 1
    :hidden:
 
-   Installation
+   installation
    createODB
    saveFiberData2D
    plot_model
