@@ -38,12 +38,15 @@ proc createODB {modelName loadCaseName numModes} {
 	set ele3nodeFile "$ODB_Dir/Elements_3Node.out"
 	set ele4nodeFile "$ODB_Dir/Elements_4Node.out"
 	set ele8nodeFile "$ODB_Dir/Elements_8Node.out"
-
+	
 	set field_ele2node [open $ele2nodeFile w+]
 	set field_ele3node [open $ele3nodeFile w+]
 	set field_ele4node [open $ele4nodeFile w+]
 	set field_ele8node [open $ele8nodeFile w+]
 
+	set eleClassTagsFile "$ODB_Dir/EleClassTags.out"
+	set field_eleClassTags [open $eleClassTagsFile w+]
+	
 	set listNodes		[getNodeTags] ; # Get all the node tags in the current domain
 	set listElements	[getEleTags]  ; # get all the element tags in the current domain
 
@@ -55,6 +58,10 @@ proc createODB {modelName loadCaseName numModes} {
 		
 	foreach eleTag $listElements {
 		set tempEle [eleNodes $eleTag]
+		# set tempEleClassTag [getEleClassTags $eleTag]
+		
+		# puts $field_eleClassTags "$eleTag $tempEleClassTag"
+		
 		if {[llength $tempEle] == 2} {
 			puts $field_ele2node "$eleTag $tempEle"
 			}
@@ -76,13 +83,14 @@ proc createODB {modelName loadCaseName numModes} {
 	close $field_ele3node  
 	close $field_ele4node  
 	close $field_ele8node
+	close $field_eleClassTags
 
 	#####################################
 	## Record load case specific data  ##
 	#####################################
 
 	if {$loadCaseName == "none"} {
-		puts "No load case folder name provided."
+		puts ">>>> VFO: createODB : warning - No load case folder name provided. No load case data will be saved <<<<"
 	} else {
 
 		file mkdir $LoadCaseDir
@@ -91,7 +99,7 @@ proc createODB {modelName loadCaseName numModes} {
 		set Nele [llength $listElements]
 		set NodeOne [nodeCoord [lindex $listNodes 0]]
 		if {[llength $NodeOne] == 2} {
-			puts "Recording output for 2D Model"
+			puts ">>> VFO: Recording output for 2D Model.<<<"
 			recorder Node -file $LoadCaseDir/NodeDisp_All.out  -time -nodeRange [lindex $listNodes 0] [lindex $listNodes [expr $N-1]] -dof 1 2 disp;  #  
 			recorder Node -file $LoadCaseDir/Reaction_All.out  -time -nodeRange [lindex $listNodes 0] [lindex $listNodes [expr $N-1]] -dof 1 2 reaction;  #  
 			# recorder Element -file $LoadCaseDir/EleForce_All.out  -time -eleRange [lindex $listElements 0] [lindex $listElements [expr $Nele-1]] -dof 1 2 localForce;  #  
@@ -110,6 +118,7 @@ proc createODB {modelName loadCaseName numModes} {
 
 	if {$numModes > 0} {
 
+		puts ">>>> VFO: Saving mode shape data. <<<<"
 		set DirName "ModeShapes"
 		set modeShapeDir $ODB_Dir/$DirName
 		file mkdir $modeShapeDir

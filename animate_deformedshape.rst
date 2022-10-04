@@ -4,50 +4,43 @@
  animate_deformedshape command
 ===============================
 
-.. function:: vfo.animate_deformedshape(Model='ModelName', LoadCase='LoadCaseName', 
-                          dt = dT, <tStart = 0>, <tEnd = 0>, <scale = 10>, fps = 24, FrameInterval = 0, 
-						  timeScale = 1, Movie='none')
+.. function:: vfo.animate_deformedshape(model="ModelName",loadcase="LoadCaseName",scale=10,speedup=1,
+										contour="none",setview="3D",node_for_th=None,node_dof=1,moviename=None,gifname=None)
+	
 
 
    Displays an animation of the deformed structure by reading data from a saved output database. 
    The animation object should be stored as an variable in order for the animation to run.
-   The input file should have approximately the same number of time between each step or the animation will appear to speed up or slow down.
-   The time step for the input data can be controlled by passing the a recorder time step.
    
-   For many larger models, the runtime of the code for each frame likely be larger than the frame interval, this will result in the animation running slower than the target fps.
-   **ffmpeg** codecs are required to save the animation as a movie (.mp4).
+   When saving the animation as a GIF file or .mp4 movie, the on-screen animation window may seem flickering based on the computer hardware.
 
 
-
-   ========================  =============================================================================================
-   ``ModelName``    |str|     Name of the model to read data from output database, created with `createODB()` command.
-   ``LoadCaseName`` |str|     Name of the subfolder with load case output data.
-   ``dT``        |float|      The time step between frames in the input file. 
-   ``tStart``    |float|      The start time for animation. It can be approximate value and the program will find the closest matching time step. (optional, default is 0)
-   ``tEnd``      |float|      The end time for animation. It can be approximate value and the program will find the closest matching time step. (optional, default is last step)
-   ``scale`` |int|            Scale factor for to display mode shape. (optional, default is 10)
-   ``fps`` |int|              The target frames per second to be displayed. (optional, The default is 24)
-   ``FrameInterval`` |int|    The time interval between frames to be used. Used to update at intervals different than 1/fps. The default is 0. (optional)
-   ``timeScale`` |int|        A scale factor that increase or decrease the time between animation frames. Will not improve results if the animation speed is governed by performance limited.(optional, default is 1)
-   ``Movie`` |str|            Name of the movie file in the `LoadCadeName` folder if the user wants to save the animation as .mp4 file. (optional, default is "none")
-   ========================  =============================================================================================
+   ========================  ======================================================================================================================================================
+   ``model``    |str|     		Name of the model to read data from output database, created with `createODB()` command.
+   ``loadcase`` |str|     		Name of the subfolder with load case output data.
+   ``scale``    |int|     		Scale factor for to display mode shape. (optional, default is 10)
+   ``speedup``  |int|     		A factor to speedup the animation. (optional, The default is 1)
+   ``setview``  |str|        	sets the camera view to predefined angles. Valid entries are "xy","yz","xz","3D", or a list with [x,y,z] unit vector. Default is "3D". (optional)
+   ``contour``  |str|        	Contours of displacement in x, y, or z. Default is "none". (optional)
+   ``node_for_th``  |int| 		Node ID to display displacement time-history. (optional)
+   ``node_dof``  |int| 			Degree-of-freedom to display displacement time-history of node_for_th. Default is 1. (optional)
+   ``moviename``  |str| 		Filename to save animation as a movie in .mp4 format. (optional)
+   ``gifname``  |str| 		 	Filename to save animation as a movie in .gif format. (optional)
+   ========================  ======================================================================================================================================================
 
    
 Examples: 
 
-.. raw:: html
+.. image:: /_static/Animation_Archetype.gif
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/-inY2aDcT4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
 ::
 
-   ani = vfo.animate_deformedshape(Model="TwoSpan_Bridge", LoadCase="Dynamic_GM1", dt=0.01)
+   ani = vfo.animate_deformedshape(model="Building", loadcase="Dynamic_GM1")
    
-The above command animates the deformedshape of structure by reading data from `TwoSpan_Bridge_ODB` with a sub-folder `Dynamic_GM1` at dt=0.01.
+The above command animates the deformedshape of structure by reading data from `Building_ODB` with a sub-folder `Dynamic_GM1` at default time-step speed.
 
 ::
 
-   ani = vfo.animate_deformedshape(Model="TwoSpan_Bridge", LoadCase="Dynamic_GM1",  dt=0.01, tStart=10.0, tEnd=20.0, 
-                                                                         scale=50, Movie="Bridge_Dynamic")
+   ani = vfo.animate_deformedshape(model="Building", loadcase="Dynamic_GM1", speedup=4, scale=50, gifname="Building_Dynamic")
 
-The above command animates the deformedshape of structure by reading data from `TwoSpan_Bridge_ODB` with a sub-folder `Dynamic_GM1` at dt=0.01, starting at t=10.0 s and ending at t=20.0 s of the earthquake input, using a scale factor of 50. The animation movie will be saved as `Bridge_Dynamic.mp4` in the `Dynamic_GM1` sub-folder.
+The above command animates the deformedshape of structure by reading data from `Building_ODB` with a sub-folder `Dynamic_GM1` at a speed 4x the default saved steps using a scale factor of 50. The animation movie will be saved as `Building_Dynamic.mp4` in the current folder.
