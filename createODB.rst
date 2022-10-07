@@ -14,10 +14,10 @@
    Input arguments are as follows,
    
    ==========================  ===============================================================================
-   ``model``     |str|      Name of the model the user wants to save database with.
-   ``loadcase`` |str|      Name of the subfolder to save load case output data.(Optional)
-   ``Nmodes``        |int|      Number of modes to be saved for visualization.(Optional)
-   ``deltaT``        |float|    Timesteps at which output to be saved. By default, the output is saved at each analysis step. (optional)
+   ``model``     |str|          Name of the model the user wants to save database with.
+   ``loadcase`` |str|           Name of the subfolder to save load case output data.(Optional)
+   ``Nmodes``    |int|          Number of modes to be saved for visualization.(Optional)
+   ``deltaT``    |float|        Timesteps at which output to be saved. By default, the output is saved at each analysis step. (optional)
    ==========================  ===============================================================================
 
 Here is a simple example:

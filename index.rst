@@ -67,8 +67,8 @@ Following are commands and development guide related to model visualization:
 #. :doc:`plot_model`
 #. :doc:`plot_modeshape`
 #. :doc:`plot_deformedshape`
-#. :doc:`plot_fiberResponse2D`
 #. :doc:`animate_deformedshape`
+#. :doc:`plot_fiberResponse2D`
 #. :doc:`animate_fiberResponse2D`
 #. :doc:`plotting_OpenSeesTcl`
 
@@ -82,8 +82,8 @@ Following are commands and development guide related to model visualization:
    plot_model
    plot_modeshape
    plot_deformedshape
-   plot_fiberResponse2D
    animate_deformedshape
+   plot_fiberResponse2D
    animate_fiberResponse2D
    plotting_OpenSeesTcl
 
