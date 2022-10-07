@@ -4,7 +4,7 @@
  plot_model command
 =========================
 
-.. function:: vfo.plot_model(model="none",show_nodetags="no",show_eletags="no",font_size=10,setview="3D",elementgroups=None,line_width=1,filename=None)
+.. function:: vfo.plot_model(model="none",show_nodes="no",show_nodetags="no",show_eletags="no",font_size=10,setview="3D",elementgroups=None,line_width=1,filename=None)
 
    Once the model is built, it can be visualized using this command. By default Node and element tags are not displayed.
    No analysis is required in order to visualize the model. 
@@ -14,6 +14,7 @@
     
    =========================== ====================================================================================================================================================================================
    ``model``    |str|        	 name of the model output database as used in createODB() function. If no name is provided, the function tries to get data from the active model. Default is "none". (optional)
+   ``show_nodes`` |str|          Renders nodes as spheres if "yes". Default is "no". (optional)
    ``show_nodetags`` |str|       Displays node tags if "yes". Default is "no". (optional)
    ``show_eletags``  |str|       Displays element tags if "yes". Default is "no". (optional)
    ``font_size``  |int|      	 Size of tag font. Default is 10. (optional)
