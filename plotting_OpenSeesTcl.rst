@@ -55,12 +55,12 @@ Or, put the following lines in a Python script and run.
   import vfo.vfo as vfo
 
   # render the model with node and element tags on it
-  vfo.plot_model("nodes","elements",Model=3DBuilding")
+  vfo.plot_model(model="3D_Building",show_nodetags="yes",show_eletags="yes")
 
   # plot mode shape 2 with a scale factor of 100
-  vfo.plot_modeshape(2, 100, Model="3DBuilding")
+  vfo.plot_modeshape(modenumber=1, scale=300, model="3D_Building")
   
   # animate the deformed shape for dynaic analysis and save it as a 3DBuilding.mp4 file.
-  vfo.animate_deformedshape(Model="3DBuilding", LoadCase="Dynamic", dt=0.01, Movie="3DBuilding")
+  vfo.animate_deformedshape(model="3D_Building", loadcase="Dynamic_GM1", gifname="Building_Dynamic")
   
 All figures are interactive and can be saved as a .png file from the plot window.
