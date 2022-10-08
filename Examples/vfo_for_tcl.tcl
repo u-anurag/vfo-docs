@@ -58,9 +58,9 @@ proc createODB {modelName loadCaseName numModes} {
 		
 	foreach eleTag $listElements {
 		set tempEle [eleNodes $eleTag]
-		# set tempEleClassTag [getEleClassTags $eleTag]
+		set tempEleClassTag [getEleClassTags $eleTag]
 		
-		# puts $field_eleClassTags "$eleTag $tempEleClassTag"
+		puts $field_eleClassTags "$eleTag $tempEleClassTag"
 		
 		if {[llength $tempEle] == 2} {
 			puts $field_ele2node "$eleTag $tempEle"
