@@ -1,8 +1,28 @@
 .. include:: sub.txt
 
-=========================
- vfo
-=========================
+
+.. image:: /_static/ModelVisualization_Intro.png
+
+===================================
+ vfo  - Visualization for OpenSees
+===================================
+
+.. |pypi| image:: https://img.shields.io/pypi/v/vfo.svg?logo=python&logoColor=white
+   :target: https://pypi.org/project/vfo/
+
+.. |Downloads| image:: https://pepy.tech/badge/vfo
+   :target: https://pepy.tech/project/vfo
+
+
+.. |stars| image:: https://img.shields.io/github/stars/u-anurag/vfo?style=social
+   :target: https://github.com/u-anurag/vfo
+   :alt: GitHub Repo stars
+
++----------------+----------------+----------------+
+| |pypi|         |     |stars|    | |Downloads|    | 
++----------------+----------------+----------------+
+
+
 
 .. important::
 
@@ -61,7 +81,6 @@ The following two commands are needed to visualize the model, as shown below:
    vfo.plot_modeshape(modenumber=3)
    
 
-.. image:: /_static/ModelVisualization_Intro.png
 
 Following are commands and development guide related to model visualization:
 
