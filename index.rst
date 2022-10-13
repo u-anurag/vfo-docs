@@ -4,8 +4,12 @@
  vfo
 =========================
 
-IMPORTANT ANNOUNCEMENT: The plotting backend for vfo is being switched to a vtk based plotting tool PyVista starting vfo 0.0.6 for smooth interaction in large OpenSees model. Some of the commands are changing
-and the older commands will not work with the new updated version. Please read this document carefully. 
+.. important::
+
+	Current Version is 0.0.9
+
+	ANNOUNCEMENT: The plotting backend for vfo is being switched to a vtk based plotting tool PyVista starting vfo 0.0.6 for smooth interaction in large OpenSees model. Some of the commands are changing
+	and the older commands will not work with the new updated version. Please read this document carefully. 
 
 
 vfo (Visualization for OpenSees) is a Python package to make your life better by helping you visualize your `OpenSees <https://openseespydoc.readthedocs.io/en/latest/index.html>`_ models, Python or Tcl. 
