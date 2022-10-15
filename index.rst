@@ -1,11 +1,9 @@
 .. include:: sub.txt
 
 
-.. image:: /_static/ModelVisualization_Intro.png
+.. image:: /_static/vfo_logo.png
 
-===================================
- vfo  - Visualization for OpenSees
-===================================
+
 
 .. |pypi| image:: https://img.shields.io/pypi/v/vfo.svg?logo=python&logoColor=white
    :target: https://pypi.org/project/vfo/
@@ -32,6 +30,10 @@
 	and the older commands will not work with the new updated version. Please read this document carefully. 
 
 
+===================================
+ vfo  - Visualization for OpenSees
+===================================
+
 vfo (Visualization for OpenSees) is a Python package to make your life better by helping you visualize your `OpenSees <https://openseespydoc.readthedocs.io/en/latest/index.html>`_ models, Python or Tcl. 
 It utilizes `PyVista <https://docs.pyvista.org/index.html>`_ library to plot 2D and 3D models in a dedicated interactive window. You can use click-and-hold to change the view angle and zoom the plot. 
 The model image can be saved with the desired orientation directly from the interactive plot window. 
@@ -47,6 +49,9 @@ Following elements are supported:
     * 8 Node Brick Elements
     * 4 Node Tetrahedron Elements
 
+
+
+.. image:: /_static/ModelVisualization_Intro.png
 
 
 Installation
